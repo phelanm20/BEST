@@ -38,9 +38,9 @@ void loop() {
     Yval = (Yval-zeroG)/scale;
     Zval = (Zval-zeroG)/scale;
     
-  /*  Serial.print(Xval);
+	Serial.print(Xval);
     Serial.print("\t");
     Serial.print(Yval);
-    Serial.print("\t");*/
+    Serial.print("\t");
     Serial.println(Zval);
 }
