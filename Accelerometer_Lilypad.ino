@@ -21,6 +21,13 @@ void loop() {
     double Xval;
     double Yval;
     double Zval;
+    double time;
+    double oldX=0;
+    double oldY=0;
+    double oldZ=0;
+    int c=0;
+
+    time = millis();
     
     digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
     delay(100);
@@ -37,10 +44,32 @@ void loop() {
     Xval = (Xval-zeroG)/scale;
     Yval = (Yval-zeroG)/scale;
     Zval = (Zval-zeroG)/scale;
+
+    /*oldX=Xval;
+    oldY=Yval;
+    oldZ=Zval
+    */
+    /*if(time>=4000*c){
+       c++;
+ 
+      if(oldX==Xval&&oldY==Yval&&oldZ==Zval){
+        //stop taking measurements
+        while(1);
+      }
+      else{
+         oldX=Xval;
+         oldY=Yval;
+         oldZ=Zval;}
+     }*/
+
     
-	Serial.print(Xval);
+    Serial.print(Xval,4);
     Serial.print("\t");
-    Serial.print(Yval);
+    Serial.print(Yval,4);
     Serial.print("\t");
-    Serial.println(Zval);
+    Serial.print(Zval,4);
+    Serial.print("\t");
+
+    Serial.println(time,4);
+
 }
